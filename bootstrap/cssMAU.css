@@ -1,0 +1,69 @@
+:root {
+    --dark: #22e3dd;
+    --dark-x: #ffffff;
+    --light: S#2a2323;
+}
+body{
+    font-family: 'Spartan';
+    font-weight: 300;
+    color: var(--light);
+}
+.bg-dark{
+    background-color: var(--dark) !important;
+}
+.bg-dark-x{
+    background-color: var(--dark-x);
+}
+.form-control, .btn{
+    min-height: 3.125rem;
+    line-height: initial;
+}
+
+.img-1{
+    background-image: url(img/paiaje1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.img-2{
+    background-image: url(img/paisaje2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.img-3{
+    background-image: url(img/paisaje3.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.control-label-form {
+    position: relative;
+    top: 7px;
+}
+@media only screen and (max-width: 600px) {
+    .control-label-form {
+        top: 0;
+    }
+}
+
+.control-label-formm {
+    position: relative;
+    top: center;
+}
+@media only screen and (max-width: 600px) {
+    .control-label-formm {
+        top: 0;
+    }
+}
+
+.custom-width {
+    width: 800px;
+    max-width: 80%;
+}
+
+.pull-right {
+    float: right;
+}
+
+.orange-red {
+    color: #0000CD; /* This sets the text color to a medium blue */
+}
