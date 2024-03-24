@@ -1,11 +1,7 @@
 <?php
 session_start();
-$host = "dark12.mysql.database.azure.com";
-$user = "Admin12";
-$password = "Darkady1";
-$dbname = "mariayiret08";
-$con = mysqli_connect($host, $user, $password, $dbname);
-if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+$con = mysqli_init();
+mysqli_ssl_set($conn, null, null, "DigiCertGlobalRootCA.crt.pem",null,null);
+mysqli_real_connect($conn,"dark12.mysql.database.azure.com","Admin12",
+"Darkady1","mariayiret08",3306, MYSQLI_CLIENT_SSL);
 ?>
