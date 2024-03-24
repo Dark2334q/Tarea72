@@ -1,5 +1,6 @@
 <?php
 session_start();
+mysqli_ssl_set("seguridad/DigiCertGlobalRootCA.crt.pem",null,null);
 $host = "dark12.mysql.database.azure.com";
 $user = "Admin12";
 $password = "Darkady1";
