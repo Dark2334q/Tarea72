@@ -57,15 +57,7 @@
 						<div class="col-sm-6">
 							<article class="statistic-box red">
 								<div>
-									<?php
-									$resultado = mysqli_query($con, "SELECT COUNT(*) AS cantidad_filas FROM estudiante");
-									if ($resultado) {
-										$fila = mysqli_fetch_assoc($resultado);
-										echo '<div class="number" id="estudiante">' . $fila['cantidad_filas'] . '</div>';
-									} else {
-										echo "Error al ejecutar la consulta: " . mysqli_error($con);
-									}
-									?>
+									
 									<div class="caption">
 										<div>ESTUDIANTES</div>
 									</div>
@@ -79,15 +71,7 @@
 						<div class="col-sm-6">
 							<article class="statistic-box purple">
 								<div>
-									<?php
-									$resulta = mysqli_query($con, "SELECT COUNT(*) AS cantidad FROM docente");
-									if ($resulta) {
-										$fila = mysqli_fetch_assoc($resulta);
-										echo '<div class="number" >' . $fila['cantidad'] . '</div>';
-									} else {
-										echo "Error al ejecutar la consulta: " . mysqli_error($con);
-									}
-									?>
+									
 									<div class="caption">
 										<div>DOCENTES</div>
 									</div>
@@ -101,15 +85,7 @@
 						<div class="col-sm-6">
 							<article class="statistic-box yellow">
 								<div>
-									<?php
-									$resulta = mysqli_query($con, "SELECT COUNT(*) AS cantidad FROM usuarios");
-									if ($resulta) {
-										$fila = mysqli_fetch_assoc($resulta);
-										echo '<div class="number" >' . $fila['cantidad'] . '</div>';
-									} else {
-										echo "Error al ejecutar la consulta: " . mysqli_error($con);
-									}
-									?>
+									
 									<div class="caption">
 										<div>USUARIOS</div>
 									</div>
@@ -123,15 +99,7 @@
 						<div class="col-sm-6">
 							<article class="statistic-box green">
 								<div>
-									<?php
-									$resulta = mysqli_query($con, "SELECT COUNT(*) AS cantidad FROM carrera");
-									if ($resulta) {
-										$fila = mysqli_fetch_assoc($resulta);
-										echo '<div class="number" >' . $fila['cantidad'] . '</div>';
-									} else {
-										echo "Error al ejecutar la consulta: " . mysqli_error($con);
-									}
-									?>
+									
 									<div class="caption">
 										<div>CARRERAS</div>
 									</div>
@@ -154,46 +122,7 @@
 						<div class="box-typical-body panel-body">
 							<table class="tbl-typical">
 
-								<?php
-								if (mysqli_connect_errno()) {
-									echo "Error al conectar con la base de datos: " . mysqli_connect_error();
-									exit();
-								}
-								$resultado = mysqli_query(
-									$con,
-									"SELECT  CONCAT(e.nombre_est, ' ', e.apellidos_estu) as Estudiante, 
-                                c.nombre_carrera AS Carrera, m.nombre_mod AS Modulo, 
-                                rel.NOTA1*0.25+rel.NOTA2*0.25+rel.NOTA3*0.5 As Promedio
-                                FROM REL_NOTAS rel
-                                INNER JOIN estudiante e ON rel.id_estudiante = e.ID_ESTUDIANTE
-                                INNER JOIN carrera c ON rel.cod_carrera = c.COD_CARRERA
-                                INNER JOIN modulos m ON rel.cod_modulo = m.COD_MODULO 
-                                where rel.NOTA1*0.25 + rel.NOTA2*0.25 + rel.NOTA3*0.5 >= 3;;
-                                "
-								);
-								if ($resultado) {
-									echo '<table class="tbl-typical">';
-									echo '<tr>';
-									echo '<th align="center"><div>ESTUDIANTE</div></th>';
-									echo '<th align="center"><div>CARRERA</div></th>';
-									echo '<th align="center"><div>MODULO</div></th>';
-									echo '<th align="center"><div>PROMEDIO</div></th>';
-									echo '</tr>';
-									while ($fila = mysqli_fetch_assoc($resultado)) {
-										echo '<tr>';
-										echo '<td>' . $fila['Estudiante'] . '</td>';
-										echo '<td>' . $fila['Carrera'] . '</td>';
-										echo '<td> <span class="label label-primary">' . $fila['Modulo'] . '</span> </td>';
-										echo '<td align="center">' . $fila['Promedio'] . '</td>';
-										echo '</tr>';
-									}
-									echo '</table>';
-									mysqli_free_result($resultado);
-								} else {
-									echo "Error al ejecutar la consulta: " . mysqli_error($con);
-								}
-								?>
-
+								
 							</table>
 						</div><!--.box-typical-body-->
 					</section><!--.box-typical-dashboard-->
@@ -205,45 +134,7 @@
 						</header>
 						<div class="box-typical-body panel-body">
 							<table class="tbl-typical">
-								<?php
-								if (mysqli_connect_errno()) {
-									echo "Error al conectar con la base de datos: " . mysqli_connect_error();
-									exit();
-								}
-								$resultado = mysqli_query(
-									$con,
-									"SELECT  CONCAT(e.nombre_est, ' ', e.apellidos_estu) as Estudiante, 
-                                c.nombre_carrera AS Carrera, m.nombre_mod AS Modulo, 
-                                rel.NOTA1*0.25+rel.NOTA2*0.25+rel.NOTA3*0.5 As Promedio
-                                FROM REL_NOTAS rel
-                                INNER JOIN estudiante e ON rel.id_estudiante = e.ID_ESTUDIANTE
-                                INNER JOIN carrera c ON rel.cod_carrera = c.COD_CARRERA
-                                INNER JOIN modulos m ON rel.cod_modulo = m.COD_MODULO
-								where rel.NOTA1*0.25 + rel.NOTA2*0.25 + rel.NOTA3*0.5 < 3;
-                                "
-								);
-								if ($resultado) {
-									echo '<table class="tbl-typical">';
-									echo '<tr>';
-									echo '<th align="center"><div>ESTUDIANTE</div></th>';
-									echo '<th align="center"><div>CARRERA</div></th>';
-									echo '<th align="center"><div>MODULO</div></th>';
-									echo '<th align="center"><div>PROMEDIO</div></th>';
-									echo '</tr>';
-									while ($fila = mysqli_fetch_assoc($resultado)) {
-										echo '<tr>';
-										echo '<td>' . $fila['Estudiante'] . '</td>';
-										echo '<td>' . $fila['Carrera'] . '</td>';
-										echo '<td> <span class="label label-primary">' . $fila['Modulo'] . '</span> </td>';
-										echo '<td align="center">' . $fila['Promedio'] . '</td>';
-										echo '</tr>';
-									}
-									echo '</table>';
-									mysqli_free_result($resultado);
-								} else {
-									echo "Error al ejecutar la consulta: " . mysqli_error($con);
-								}
-								?>
+								
 							</table>
 						</div><!--.box-typical-body-->
 					</section><!--.box-typical-dashboard-->
@@ -261,20 +152,7 @@
 	<script type="text/javascript" src="bootstrap/js/lib/match-height/jquery.matchHeight.min.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="bootstrap/js/app.js"></script>
-	<?php
-	if (!$con) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
-	$sql = "SELECT nombre_carrera, valor_carrera FROM carrera";
-	$resultado = mysqli_query($con, $sql);
-	$datos = array();
-	while ($fila = mysqli_fetch_assoc($resultado)) {
-		$nombre = $fila['nombre_carrera'];
-		$costo = (float)$fila['valor_carrera'];
-		$datos[] = "['$nombre', $costo, '$costo']";
-	}
-	$datos_js = implode(",", $datos);
-	?>
+	
 	<script>
 		$(document).ready(function() {
 			$('.panel').lobiPanel({
