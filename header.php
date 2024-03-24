@@ -57,7 +57,6 @@
 						<div class="col-sm-6">
 							<article class="statistic-box red">
 								<div>
-									
 									<div class="caption">
 										<div>ESTUDIANTES</div>
 									</div>
@@ -71,7 +70,6 @@
 						<div class="col-sm-6">
 							<article class="statistic-box purple">
 								<div>
-									
 									<div class="caption">
 										<div>DOCENTES</div>
 									</div>
@@ -85,7 +83,6 @@
 						<div class="col-sm-6">
 							<article class="statistic-box yellow">
 								<div>
-									
 									<div class="caption">
 										<div>USUARIOS</div>
 									</div>
@@ -99,7 +96,6 @@
 						<div class="col-sm-6">
 							<article class="statistic-box green">
 								<div>
-									
 									<div class="caption">
 										<div>CARRERAS</div>
 									</div>
